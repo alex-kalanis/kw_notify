@@ -1,0 +1,32 @@
+{
+    "name": "alex-kalanis/kw_notify",
+    "description": "Notifications in KWCMS",
+    "keywords": [
+        "notify",
+        "notification",
+        "notifications",
+        "errors",
+        "warnings",
+        "info"
+    ],
+    "license": "BSD-3-Clause",
+    "type": "library",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=7.2"
+    },
+    "suggest": {
+        "alex-kalanis/kw_input": "Inputs for KWCMS"
+    },
+    "autoload": {
+        "psr-4": {
+            "kalanis\\kw_notify\\": "php-src/"
+        }
+    },
+    "scripts": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
