@@ -18,7 +18,8 @@
         "phpunit/phpunit": ">=7.2"
     },
     "suggest": {
-        "alex-kalanis/kw_input": "Inputs for KWCMS"
+        "alex-kalanis/kw_input": "Inputs for KWCMS",
+        "alex-kalanis/kw_templates": "Templates for KWCMS"
     },
     "autoload": {
         "psr-4": {

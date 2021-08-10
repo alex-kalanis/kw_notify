@@ -7,7 +7,7 @@ namespace kalanis\kw_notify\examples;
 \kalanis\kw_notify\Notification::init(
     new \kalanis\kw_notify\Extend\StackName(
         new \kalanis\kw_notify\Stack(
-            new \kalanis\kw_input\Extras\SessionAdapter() // access sessions in object
+            new \kalanis\kw_input\Simplified\SessionAdapter() // access sessions in object
         ), 'kwnotif_'
     )
 );
@@ -21,7 +21,7 @@ use kalanis\kw_notify\Notification;
 /**
  * Class Notify
  * @package kalanis\kw_notify\examples
- * Example of notifications - usage in
+ * Example of notifications - usage in some controller
  */
 class Notify
 {

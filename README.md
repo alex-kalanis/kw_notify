@@ -1,19 +1,13 @@
 # kw_notify
 
-Notifications stored somewhere for later usage.
+Notifications stored somewhere for later usage. Store them and return them.
 
 ## PHP Installation
 
 ```
 {
     "require": {
-        "alex-kalanis/kw_notify": "dev-master"
-    },
-    "repositories": [
-        {
-            "type": "http",
-            "url":  "https://github.com/alex-kalanis/kw_notify.git"
-        }
+        "alex-kalanis/kw_notify": "1.0"
     }
 }
 ```
@@ -26,10 +20,8 @@ familiar with composer)
 
 1.) Use your autoloader (if not already done via Composer autoloader)
 
-2.) Add some external packages with connection to the local or remote services.
+2.) Connect the "kalanis\kw_notify\Notification" into your app. Extends it for setting your case. See example.
 
-3.) Connect the "kalanis\kw_notify\Notification" into your app. Extends it for setting your case. See example.
+3.) Create your own render and call notifications there.
 
-4.) Extend your libraries by interfaces inside the package.
-
-5.) Just call setting and render
+4.) Just call notifications and your render
