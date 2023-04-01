@@ -7,11 +7,15 @@ use CommonTestClass;
 use kalanis\kw_notify\Extend\StackName;
 use kalanis\kw_notify\Interfaces\INotify;
 use kalanis\kw_notify\Notification;
+use kalanis\kw_notify\NotifyException;
 use kalanis\kw_notify\Stack;
 
 
 class NotifyTest extends CommonTestClass
 {
+    /**
+     * @throws NotifyException
+     */
     public function testStack(): void
     {
         $stack = new Stack(new \ArrayObject());
@@ -23,6 +27,9 @@ class NotifyTest extends CommonTestClass
         $this->assertEquals(['jkl', 'mno', 'pqr', ], $stack->get('ghi'));
     }
 
+    /**
+     * @throws NotifyException
+     */
     public function testStackName(): void
     {
         $stack = new Stack(new \ArrayObject());
@@ -32,6 +39,7 @@ class NotifyTest extends CommonTestClass
         $stackName->add('ghi', 'mno');
         $this->assertTrue($stackName->check('abc'));
         $this->assertFalse($stackName->check('def'));
+        $this->assertEmpty($stackName->get('def'));
         $this->assertEquals(['def'], $stack->get('pre_abc_post'));
         $this->assertEquals(['jkl', 'mno', ], $stack->get('pre_ghi_post'));
         $stackName->reset('abc');
@@ -42,6 +50,9 @@ class NotifyTest extends CommonTestClass
         $this->assertEquals(['def'], $stackName->get('abc'));
     }
 
+    /**
+     * @throws NotifyException
+     */
     public function testNotify(): void
     {
         $stack = new Stack(new \ArrayObject());
@@ -60,5 +71,24 @@ class NotifyTest extends CommonTestClass
         $this->assertEquals(['ghi', ], Notification::getNotify()->get(INotify::TARGET_WARNING));
         $this->assertEquals(['jkl', ], Notification::getNotify()->get(INotify::TARGET_ERROR));
         $this->assertEquals(['mno', ], Notification::getNotify()->get(INotify::TARGET_SUCCESS));
+    }
+
+    /**
+     * @throws NotifyException
+     */
+    public function testNotifyFail(): void
+    {
+        Notify::unsetStack();
+        $this->expectException(NotifyException::class);
+        Notify::addInfo('abc');
+    }
+}
+
+
+class Notify extends Notification
+{
+    public static function unsetStack(): void
+    {
+        static::$storage = null;
     }
 }

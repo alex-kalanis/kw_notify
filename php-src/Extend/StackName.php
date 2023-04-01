@@ -13,9 +13,11 @@ use kalanis\kw_notify\Interfaces\INotify;
  */
 class StackName implements INotify
 {
-    /** @var INotify|null */
+    /** @var INotify */
     protected $notify = null;
+    /** @var string */
     protected $prefix = '';
+    /** @var string */
     protected $suffix = '';
 
     public function __construct(INotify $storage, string $prefix = '', string $suffix = '')
