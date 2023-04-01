@@ -29,16 +29,16 @@ interface INotify
     /**
      * Check if stack exists
      * @param string $stackName
-     * @return bool
      * @throws NotifyException
+     * @return bool
      */
     public function check(string $stackName): bool;
 
     /**
      * Return content in stack
      * @param string $stackName
-     * @return string[]
      * @throws NotifyException
+     * @return string[]
      */
     public function get(string $stackName): array;
 
