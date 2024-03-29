@@ -13,8 +13,7 @@ use kalanis\kw_notify\Interfaces\INotify;
  */
 class Notification
 {
-    /** @var INotify|null */
-    protected static $storage = null;
+    protected static ?INotify $storage = null;
 
     /**
      * @param INotify $storage

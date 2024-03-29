@@ -15,7 +15,7 @@ use kalanis\kw_notify\Interfaces\INotify;
 class Stack implements INotify
 {
     /** @var ArrayAccess<string, array<string>> */
-    protected $storage = null;
+    protected ArrayAccess $storage;
 
     /**
      * @param ArrayAccess<string, array<string>> $storage Usually $_SESSION adapter
